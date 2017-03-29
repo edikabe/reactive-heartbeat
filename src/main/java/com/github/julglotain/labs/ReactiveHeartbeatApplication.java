@@ -19,7 +19,7 @@ public class ReactiveHeartbeatApplication {
     public static void main(String[] args) {
         SpringApplication.run(ReactiveHeartbeatApplication.class, args);
     }
-    
+
     @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE, value = "/events")
     Flux<Event> events() {
         Flux<Event> eventFlux = Flux.fromStream(Stream.generate(() -> new Event(System.currentTimeMillis(), new Date())));
