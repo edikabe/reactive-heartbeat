@@ -1,5 +1,16 @@
+sudo: required
+
 language: java
 
-script: mvn clean test
-
 jdk: oraclejdk8
+
+services:
+  - docker
+
+script: mvn clean test docker:build
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push julglotain/reactive-heartbeat;
+    fi
