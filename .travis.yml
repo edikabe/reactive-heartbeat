@@ -1,13 +1,13 @@
 sudo: required
 
-language: java
+language: javadocker
 
 jdk: oraclejdk8
 
 services:
   - docker
 
-script: mvn clean test docker:build
+script: mvn clean package docker:build
 
 cache:
   directories:
