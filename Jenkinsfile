@@ -20,9 +20,9 @@ mvn clean'''
         archiveArtifacts 'target/*.jar'
       }
     }
-    stage('') {
+    stage('Test') {
       steps {
-        input 'Go for test ?'
+        input 'Ready for next step ? '
       }
     }
   }
