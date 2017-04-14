@@ -20,5 +20,10 @@ mvn clean'''
         archiveArtifacts 'target/*.jar'
       }
     }
+    stage('') {
+      steps {
+        input 'Go for test ?'
+      }
+    }
   }
 }
