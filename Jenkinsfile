@@ -17,6 +17,7 @@ mvn clean'''
     stage('Build') {
       steps {
         sh 'mvn install '
+        archiveArtifacts 'target/*.jar'
       }
     }
   }
