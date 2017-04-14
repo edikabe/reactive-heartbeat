@@ -1,9 +1,15 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'maven:3.5.0-jdk-8'
+    }
+    
+  }
   stages {
     stage('Init') {
       steps {
-        echo 'Init pipeline'
+        sh '''echo PATH=${PATH}
+echo M2_HOME=${M2_HOME}'''
       }
     }
   }
